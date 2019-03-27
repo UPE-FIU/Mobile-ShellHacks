@@ -2,14 +2,32 @@ import React from "react";
 import { StyleSheet, Text, View, LinkingIOS } from "react-native";
 import { Platform } from "expo-core";
 import LoginView from "./src/components/LoginView";
+import LandingView from "./src/components/LandingView";
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      signingIn: false
+    };
+  }
+
+  showSignUpView = () => {
+    this.setState({
+      signingIn: true
+    });
+  };
   render() {
+    const { signingIn } = this.state;
+
     return (
       <View style={styles.container}>
         <Text style={styles.logoText}>SHELLHACKS</Text>
-        <LoginView />
-        <Text style={styles.helpLinks}>Forgot Password | Register</Text>
+        {signingIn ? (
+          <LoginView />
+        ) : (
+          <LandingView showSignUpView={this.showSignUpView} />
+        )}
       </View>
     );
   }
