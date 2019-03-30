@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     container: {
       height: '100%',
       width: '100%',
-      backgroundColor: 'purple',
+      backgroundColor: '#F1E2B8',
     },
 
     firstSection: {
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
      marginRight: '10%',
      marginLeft: '10%',
      height: 60,
-     backgroundColor: '#3875d8',
+     backgroundColor: '#5FC6CA',
      borderRadius: 30,
      justifyContent: 'center',
     },
