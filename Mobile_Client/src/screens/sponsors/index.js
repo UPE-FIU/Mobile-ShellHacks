@@ -28,9 +28,9 @@ export default class SponsorScreen extends React.Component {
                renderItem = {({ item }) => (
                <SponsorCard imgStyle={styles.firstSection} logo={{uri: item.picture}} url={item.url}
                />
-                      )}
+                      )}  
             />
-      <Text style={{fontSize: 18, margin: 15, color: 'white', fontWeight: 'bold'}}> Featuring
+      <Text style={{fontSize: 18, margin: 15, color: '#665C51', fontWeight: 'bold'}}> Featuring
       </Text>
            <FlatList 
              data = {this.customData[1].comp}
@@ -69,7 +69,7 @@ export default class SponsorScreen extends React.Component {
                <SponsorCard imgStyle={styles.thirdSection} logo={{uri: item.picture}} url={item.url}
                /> )}
          />
-        <Text style={{color:'white', fontWeight:'bold',textAlign:'center', marginTop:50, marginBottom: 20}}>
+        <Text style={{color:'#665C51', fontWeight:'bold',textAlign:'center', marginTop:50, marginBottom: 20}}>
            Whoa! =O you've made it to the bottom. {"\n"}
            If you've attended everything, you are the real MVP
         </Text>
