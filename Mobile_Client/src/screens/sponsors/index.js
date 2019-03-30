@@ -18,7 +18,7 @@ export default class SponsorScreen extends React.Component {
   render() {
     return (
       <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-         <View style={{width: '100%', marginTop: 150, marginBottom: 120}}>
+         <View style={{width: '100%', marginTop: 50, marginBottom: 120}}>
             <View style={styles.Header}>
                <Text style={styles.HeaderTxt}> Organizer</Text>
             </View>
