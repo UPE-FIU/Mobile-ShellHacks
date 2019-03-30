@@ -8,6 +8,10 @@ import {
 } from "react-native";
 
 export default class LoginView extends React.Component {
+  backToLanding = () => {
+    const { showLandingView } = this.props;
+    showLandingView();
+  };
   render() {
     return (
       <View style={styles.container}>
@@ -36,6 +40,9 @@ export default class LoginView extends React.Component {
         >
           <Text style={styles.whiteText}>Sign In</Text>
         </TouchableOpacity>
+        <Text style={styles.backLabel} onPress={this.backToLanding}>
+          {"< Back"}
+        </Text>
       </View>
     );
   }
@@ -69,5 +76,9 @@ const styles = StyleSheet.create({
   whiteText: {
     color: "#FFF",
     fontSize: 16
+  },
+  backLabel: {
+    fontSize: 14,
+    paddingTop: 30
   }
 });

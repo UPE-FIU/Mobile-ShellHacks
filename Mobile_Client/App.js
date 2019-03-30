@@ -17,6 +17,12 @@ export default class App extends React.Component {
       signingIn: true
     });
   };
+
+  showLandingView = () => {
+    this.setState({
+      signingIn: false
+    });
+  };
   render() {
     const { signingIn } = this.state;
 
@@ -24,7 +30,7 @@ export default class App extends React.Component {
       <View style={styles.container}>
         <Text style={styles.logoText}>SHELLHACKS</Text>
         {signingIn ? (
-          <LoginView />
+          <LoginView showLandingView={this.showLandingView} />
         ) : (
           <LandingView showSignUpView={this.showSignUpView} />
         )}
@@ -41,12 +47,8 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   logoText: {
+    marginBottom: 35,
     fontFamily: Platform.OS === "ios" ? "AvenirNext-Regular" : "Roboto",
-    fontSize: 34,
-    marginBottom: 20
-  },
-  helpLinks: {
-    marginTop: 50,
-    fontSize: 16
+    fontSize: 34
   }
 });

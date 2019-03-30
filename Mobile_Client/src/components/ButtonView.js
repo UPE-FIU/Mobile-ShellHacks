@@ -2,14 +2,18 @@ import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 export default class ButtonView extends React.Component {
-  handleSignIn = () => {
-    const { handleViewChange } = this.props;
-    handleViewChange();
+  handlePress = () => {
+    const { handleViewChange, buttonText } = this.props;
+    {
+      buttonText == "Sign In"
+        ? handleViewChange()
+        : console.log("Handle this differently");
+    }
   };
   render() {
     const { buttonText } = this.props;
     return (
-      <TouchableOpacity style={styles.buttonStyles} onPress={this.handleSignIn}>
+      <TouchableOpacity style={styles.buttonStyles} onPress={this.handlePress}>
         <Text style={styles.buttonText}>{buttonText}</Text>
       </TouchableOpacity>
     );
