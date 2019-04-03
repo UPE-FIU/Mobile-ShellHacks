@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Image, Linking, Modal, Text, TouchableOpacity, TouchableHighlight } from 'react-native';
-import style from './style'
+import { StyleSheet, View, Image, Linking, Modal, Text, TouchableOpacity } from 'react-native';
+
+import styles from './style'
 
 
 export default class SponsorCard extends Component {
@@ -14,14 +15,12 @@ export default class SponsorCard extends Component {
     };
   }
 
-
-
   setModalVisible = (visible) => {
     this.setState({ modalVisible: visible });
   }
 
   setDescription = () => {
-    this.setState({ description: '\nDescription of Company Here\n' })
+    this.setState({ description: '\nCompany Description\n' })
   }
 
   goToURL = (url) => {
@@ -29,58 +28,50 @@ export default class SponsorCard extends Component {
   }
 
 
-  PressedButton = () => {
-    Linking.openURL(this.props.url)
-  }
   render() {
     return (
       <View style={this.props.imgStyle} >
-        {/* Modal */}
         <Modal
           animationType="slide"
-          transparent={false}
+          transparent={true}
           visible={this.state.modalVisible}
           onRequestClose={() => { // For Android
-            Alert.alert('Modal has been closed.');
+            this.setModalVisible(!this.state.modalVisible);
           }}>
-          <View style={style.modalBackground}>
-            <View style={style.modal}>
-              <Text
-                style={{ fontSize: 20, alignSelf: 'flex-end', marginRight: 8, color: 'white' }}
+          <View style={styles.modalContainer}>
+            <View style={styles.modal}>
+
+              <TouchableOpacity
+                style={styles.closeModalButton}
                 onPress={() => {
                   this.setModalVisible(!this.state.modalVisible);
                 }}>
-                X
-            </Text>
-              <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }}>Company Logo</Text>
-              <Text style={{ color: 'white', fontSize: 16 }}>{this.state.description}</Text>
+                <Text style={styles.closeModalButtonText}>X</Text>
+              </TouchableOpacity>
 
-              <TouchableHighlight
-                onPress={this.goToURL}>
-                <Text style={style.button}>Apply Here!</Text>
-              </TouchableHighlight>
+              <Text style={styles.companyLogo}>Company Logo</Text>
+              <Text style={styles.companyDescription}>{this.state.description}</Text>
+
+              <View style={styles.buttonFlex}>
+                <TouchableOpacity
+                  style={styles.buttonStyle}
+                  onPress={this.goToURL}>
+                  <Text style={styles.button}>Apply Here!</Text>
+                </TouchableOpacity>
+              </View>
+
             </View>
           </View>
         </Modal>
 
         <TouchableOpacity onPress={() => {
-          // this.PressedButton();
           this.setModalVisible(true);
           this.setDescription();
-        }} >
+        }}>
           <Image style={styles.imageStyle} source={this.props.logo} />
         </TouchableOpacity>
-      </View >
+        
+      </View>
     );
   }
 }
-
-
-const styles = StyleSheet.create({
-  container: {},
-  imageStyle: {
-    height: '100%',
-    width: '100%',
-    resizeMode: 'contain',
-  },
-});

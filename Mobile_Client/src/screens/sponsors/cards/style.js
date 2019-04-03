@@ -1,39 +1,64 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-	container: {
+	modalContainer: {
 		flex: 1,
-		alignItems: "center",
-		justifyContent: "center",
-		backgroundColor: "#5FC6CA",
-		borderRadius: 4,
-		borderColor: "#C0C0C0",
-		borderWidth: 2,
-	},
-
-	modalBackground: {
-		flex: 1,
-		backgroundColor: '#39a8ac',
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 
 	modal: {
-		alignSelf: 'center',
 		alignItems: 'center',
-		justifyContent: 'center',
-		marginTop: 50,
 		padding: 15,
-		borderWidth: 1,
+		borderWidth: 0.5,
 		borderRadius: 12,
-		width: '80%',
-		backgroundColor: '#F282B3'
+		width: '65%',
+		height: '60%',
+		backgroundColor: '#9E8D7D',
+	},
+
+	buttonFlex: {
+		flex: 1, 
+		justifyContent: 'flex-end',
+	},
+
+	buttonStyle: {
+       alignItems: 'center',
+       justifyContent: 'center',
+       backgroundColor: '#5FC6CA',
+       borderRadius: 12,
 	},
 
 	button: {
-		color: 'white', 
-		borderWidth: 1, 
-		borderRadius: 3,
-		backgroundColor: '#5FC6CA',
+		color: 'white',
 		padding: 6,
-		fontSize: 16
-	}
+		fontSize: 16,
+		marginBottom: '2%',
+	},
+
+	closeModalButton: {
+		alignSelf: 'flex-end',
+	},
+
+	closeModalButtonText: {
+		fontSize: 25,
+		color: 'white',
+	},
+
+	companyLogo: {
+		color: 'white', 
+		fontSize: 20, 
+		fontWeight: 'bold',
+	},
+
+	companyDescription: {
+		color: 'white', 
+		fontSize: 16,
+	},
+
+	imageStyle: {
+		height: '100%',
+		width: '100%',
+		resizeMode: 'contain',
+	  },
 });
