@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, LinkingIOS } from "react-native";
 import { Platform } from "expo-core";
 import LoginView from "./src/components/LoginView";
 import LandingView from "./src/components/LandingView";
+import Announcement from "./src/components/Announcement";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -28,12 +29,13 @@ export default class App extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.logoText}>SHELLHACKS</Text>
+        <Announcement />
+        {/* <Text style={styles.logoText}>SHELLHACKS</Text>
         {signingIn ? (
           <LoginView showLandingView={this.showLandingView} />
         ) : (
           <LandingView showSignUpView={this.showSignUpView} />
-        )}
+        )} */}
       </View>
     );
   }
@@ -42,9 +44,9 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FBECCC",
-    alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: "#FBECCC"
+    // alignItems: "center"
+    // justifyContent: "center"
   },
   logoText: {
     marginBottom: 35,
