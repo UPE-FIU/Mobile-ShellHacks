@@ -1,9 +1,14 @@
+
 import React from "react";
 import { StyleSheet, Text, View, LinkingIOS } from "react-native";
 import { Platform } from "expo-core";
 import LoginView from "./src/components/LoginView";
 import LandingView from "./src/components/LandingView";
 import Announcement from "./src/components/Announcement";
+
+import React from 'react';
+import { StyleSheet,} from 'react-native';
+import AppNavigator from './src/navigation';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -28,6 +33,7 @@ export default class App extends React.Component {
     const { signingIn } = this.state;
 
     return (
+
       <View style={styles.container}>
         <Announcement />
         {/* <Text style={styles.logoText}>SHELLHACKS</Text>
@@ -37,6 +43,8 @@ export default class App extends React.Component {
           <LandingView showSignUpView={this.showSignUpView} />
         )} */}
       </View>
+
+      <AppNavigator />
     );
   }
 }
@@ -54,3 +62,4 @@ const styles = StyleSheet.create({
     fontSize: 34
   }
 });
+
