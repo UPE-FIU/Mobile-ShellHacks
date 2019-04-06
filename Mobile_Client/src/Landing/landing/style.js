@@ -10,13 +10,14 @@ const styles = StyleSheet.create({
     buttonStyles: {
         padding: 15,
         marginTop: 40,
-        borderRadius: 15,
+        borderRadius: 25,
         width: '80%',
         backgroundColor: "#2C82A9",
         alignItems: "center"
     },
     buttonText: {
-        color: "#FFF"
+        color: "#F6F6F6",
+        fontWeight: '900'
     }
 })
 
