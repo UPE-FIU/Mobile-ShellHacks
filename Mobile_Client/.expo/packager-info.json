@@ -1,8 +1,9 @@
 {
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 11224,
+  "expoServerNgrokUrl": "https://uw-yr6.jehfkemsy.mobile-client.exp.direct",
+  "packagerNgrokUrl": "https://packager.uw-yr6.jehfkemsy.mobile-client.exp.direct",
+  "ngrokPid": 9224,
+  "devToolsPort": 19002
 }
