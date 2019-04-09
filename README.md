@@ -1,4 +1,4 @@
-# Mobile-ShellHacks
+# :shell:Shell-Mobile
 A mobile App for [ShellHacks](https://www.shellhaks.net) using [React Native](https://facebook.github.io/react-native/) with [Expo](https://expo.io/), [NodeJS](https://nodejs.org/en/), and [MongoDB](https://www.mongodb.com/) database. 
 
 ## Setup
