@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, LinkingIOS } from "react-native";
 import { Platform } from "expo-core";
 import LoginView from "./src/components/LoginView";
 import LandingView from "./src/components/LandingView";
+import AppNavigator from "./src/navigation";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -26,16 +27,7 @@ export default class App extends React.Component {
   render() {
     const { signingIn } = this.state;
 
-    return (
-      <View style={styles.container}>
-        <Text style={styles.logoText}>SHELLHACKS</Text>
-        {signingIn ? (
-          <LoginView showLandingView={this.showLandingView} />
-        ) : (
-          <LandingView showSignUpView={this.showSignUpView} />
-        )}
-      </View>
-    );
+    return <AppNavigator />;
   }
 }
 

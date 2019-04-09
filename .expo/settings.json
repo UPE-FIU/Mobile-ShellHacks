@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "hostType": "lan",
+=======
+  "hostType": "tunnel",
+>>>>>>> ef96723f12932aaf602d69f5c161ea4e051804c6
   "lanType": "ip",
   "dev": true,
   "minify": false,

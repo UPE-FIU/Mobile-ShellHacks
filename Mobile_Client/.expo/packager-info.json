@@ -1,10 +1,10 @@
 {
-  "expoServerNgrokUrl": "https://2c-2ec.anonymous.mobile-client.exp.direct",
-  "packagerNgrokUrl": "https://packager.2c-2ec.anonymous.mobile-client.exp.direct",
-  "ngrokPid": 18815,
+  "expoServerNgrokUrl": "https://uw-yr6.anonymous.mobile-client.exp.direct",
+  "packagerNgrokUrl": "https://packager.uw-yr6.anonymous.mobile-client.exp.direct",
+  "ngrokPid": 67479,
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 18798,
+  "packagerPid": 67468,
   "webpackServerPort": null
 }
