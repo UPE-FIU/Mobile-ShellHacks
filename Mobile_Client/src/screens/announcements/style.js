@@ -6,6 +6,5 @@ export default style = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: '50%'
-
   },
 });
