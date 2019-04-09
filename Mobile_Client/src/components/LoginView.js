@@ -34,12 +34,14 @@ export default class LoginView extends React.Component {
           clearButtonMode="always"
           style={styles.textInput}
         />
-        <TouchableOpacity
-          style={styles.submitButton}
-          onPress={() => console.log("Implement Login")}
-        >
-          <Text style={styles.whiteText}>Sign In</Text>
-        </TouchableOpacity>
+        <View style={styles.submitWrapper}>
+          <TouchableOpacity
+            style={styles.submitButton}
+            onPress={() => console.log("Implement Login")}
+          >
+            <Text style={styles.whiteText}>Sign In</Text>
+          </TouchableOpacity>
+        </View>
         <Text style={styles.backLabel} onPress={this.backToLanding}>
           {"< Back"}
         </Text>
@@ -68,9 +70,12 @@ const styles = StyleSheet.create({
     padding: 12,
     margin: 10,
     borderRadius: 15,
-    width: 230,
+    width: 200,
     backgroundColor: "#2C82A9",
     color: "#FFF",
+    alignItems: "center"
+  },
+  submitWrapper: {
     alignItems: "center"
   },
   whiteText: {
