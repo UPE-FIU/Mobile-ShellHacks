@@ -18,11 +18,7 @@ export default class Login extends React.Component {
     }
     //need to implement @Joseph... saving the token to local storage 
     saveToken = () => { }
-    //need to implement @Joseph
-    hashPassword = () => { }
-    //need to implement @Joseph
-    hashEmail = () => { }
-    //need to implement correctly @Joseph
+
     signIn = () => { this.props.navigation.navigate('App') }
 
     backToLanding = () => { this.props.navigation.navigate('Landing') }
@@ -35,7 +31,7 @@ export default class Login extends React.Component {
                         autoCorrect={false}
                         placeholder="roary@fiu.edu"
                         selectionColor="#FFF"
-                        placeholderTextColor="#FFF"
+                        placeholderTextColor="#b7ae98"
                         clearButtonMode="always"
                         style={styles.textInput}
                     />
@@ -44,7 +40,7 @@ export default class Login extends React.Component {
                         autoCorrect={false}
                         placeholder="***********"
                         selectionColor="#FFF"
-                        placeholderTextColor="#FFF"
+                        placeholderTextColor="#b7ae98"
                         secureTextEntry={true}
                         clearButtonMode="always"
                         style={styles.textInput}

@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         width: '80%',
     },
     textInput: {
-        borderRadius: 15,
+        borderRadius: 10,
         width: '100%',
         marginTop: 5,
         marginBottom: 15,
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         marginTop: 30,
         padding: 12,
         // // margin: 10,
-        borderRadius: 15,
+        borderRadius: 25,
         width: '100%',
         backgroundColor: "#2C82A9",
         color: "#FFF",
