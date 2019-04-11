@@ -68,9 +68,9 @@ export default class SponsorCard extends Component {
           this.setModalVisible(true);
           this.setDescription();
         }}>
-          <Image style={styles.imageStyle} source={this.props.logo} />
+          <Image style={styles.imageStyle} source={this.props.logo} resizeMode={'contain'} />
         </TouchableOpacity>
-        
+
       </View>
     );
   }

@@ -1,80 +1,176 @@
 import React from 'react';
 import { Text, View, ScrollView, SectionList, FlatList } from 'react-native';
-import SponsorCard from './cards/index';
+import SponsorCard from '../../components/cards/index';
 import styles from './style';
-import { sponsorsData } from './info.json';
+import { sponsors } from './data.json';
 
 export default class SponsorScreen extends React.Component {
    constructor() {
       super();
-      this.customData = Object.keys(sponsorsData).map((key) => {
-         return {
-            comp: sponsorsData[key].COMPANIES, title: sponsorsData[key].BANNER
-         }
-      });
-
+      this.state = {
+      }
    }
 
    render() {
       return (
-         <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-            <View style={{ width: '100%', marginTop: 50, marginBottom: 120 }}>
-               <View style={styles.Header}>
-                  <Text style={styles.HeaderTxt}> Organizers</Text>
-               </View>
-               <View style={{ alignItems: 'center' }}>
-                  <FlatList
-                     data={this.customData[0].comp}
-                     renderItem={({ item }) => (
-                        <SponsorCard imgStyle={styles.firstSection} logo={{ uri: item.picture }} url={item.url}
-                        />
-                     )}
-                  />
-                  <Text style={{ fontSize: 18, margin: 15, color: '#665C51', fontWeight: 'bold' }}> Featuring
-      </Text>
-                  <FlatList
-                     data={this.customData[1].comp}
-                     renderItem={({ item }) => (
-                        <SponsorCard imgStyle={styles.firstSection} logo={{ uri: item.picture }} url={item.url}
-                        />)}
-                  />
-               </View>
-
-               <View style={styles.Header}>
-                  <Text style={styles.HeaderTxt}> Sponsors </Text>
-               </View>
-
-               <FlatList
-                  style={{ flex: 1, alignSelf: 'center' }}
-                  data={this.customData[2].comp}
-                  horizontal={false}
-                  numColumns={2}
-                  columnWrapperStyle={{}}
-                  renderItem={({ item }) => (
-                     <SponsorCard imgStyle={styles.secSection} logo={{ uri: item.picture }} url={item.url}
-                     />)}
-               />
-
-               <View style={styles.Header}>
-                  <Text style={styles.HeaderTxt}> Partners </Text>
-               </View>
-
-               <FlatList
-                  style={{ flex: 1, alignSelf: 'center' }}
-                  data={this.customData[3].comp}
-                  horizontal={false}
-                  numColumns={3}
-                  columnWrapperStyle={{}}
-                  renderItem={({ item }) => (
-                     <SponsorCard imgStyle={styles.thirdSection} logo={{ uri: item.picture }} url={item.url}
-                     />)}
-               />
-               <Text style={{ color: '#665C51', fontWeight: 'bold', textAlign: 'center', marginTop: 50, marginBottom: 20 }}>
-                  Made with ❤	by the ShellDev Team
-               </Text>
-            </View>
-         </ScrollView>
+         <View style={styles.container}>
+            <SectionList
+               contentContainerStyle={styles.sectionListContainer}
+               renderItem={({ item, index, section }) => <SponsorCard key={index} imgStyle={styles.fullWidthLogo} logo={{ uri: item.logo }} url={item.url}
+               />}
+               renderSectionHeader={({ section: { title } }) => (
+                  <View style={styles.Header}>
+                     <Text style={styles.HeaderTxt}>{title}</Text>
+                  </View>)}
+               sections={data}
+               keyExtractor={(item, index) => item + index}
+               ListFooterComponent={<Text style={styles.bottomMessage}> Made with ❤	by the ShellDev Team</Text>}
+            />
+         </View >
       );
    }
 }
+
+//temp data tester
+const data = [
+   {
+      title: 'Organizer',
+      data: [
+         {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }
+      ]
+   },
+   {
+      title: 'Co-Host',
+      data: [
+         {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }
+      ]
+   },
+   {
+      title: 'Sponsors',
+      data: [
+         {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }
+      ]
+   },
+   {
+      title: 'Partners',
+      data: [
+         {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         }, {
+            name: 'Spotify',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            logo: 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png',
+            url: 'https://www.lipsum.com/'
+         } 
+      ]
+   }
+]
 

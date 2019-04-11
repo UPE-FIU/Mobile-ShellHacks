@@ -9,9 +9,6 @@ export default styles = StyleSheet.create({
     height: '100%'
   },
   containerStyles: {
-    // backgroundColor: '#888',
-    // borderColor: "#000",
-    // borderWidth: 1,
     width: '80%'
   },
   userContainer: {
@@ -32,7 +29,7 @@ export default styles = StyleSheet.create({
     flex: 3
   },
   buttonStyles: {
-    padding: 15,
+    padding: 15,//need to change
     marginTop: '5%',
     borderRadius: 25,
     width: '100%',
@@ -71,10 +68,11 @@ export default styles = StyleSheet.create({
   socialMediaIconContainer: {
     width: '100%',
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    paddingBottom: '5%'
   },
-  socialMediaIcon: {
-    width: 70,
-    height: 70
+  socialMediaIcon: {//need to make dynamic 
+    width: 60,
+    height: 60
   }
 });
