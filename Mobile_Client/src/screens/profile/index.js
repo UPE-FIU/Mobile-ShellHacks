@@ -28,43 +28,43 @@ export default class Profile extends React.Component {
     Button = (buttonText, handlePress, buttonStyles) => {
         return (
             <TouchableOpacity style={buttonStyles} onPress={handlePress}>
-                <Text style={style.buttonText}>{buttonText}</Text>
+                <Text style={styles.buttonText}>{buttonText}</Text>
             </TouchableOpacity>
         )
     }
-    Image = (source, handlePress) => {
+    socialMedia = (source, handlePress) => {
         return (
             <TouchableOpacity onPress={handlePress}>
-                <Image style={style.imgStyles} source={{ uri: source }} />
+                <Image style={styles.socialMediaIcon} source={{ uri: source }} resizeMode={'contain'} />
             </TouchableOpacity>
         )
     }
     render() {
         return (
-            <View style={style.container}>
-                <View style={style.userInfo}>
-                    <Image style={style.avatar} source={{ uri: this.state.avatar }} />
+            <View style={styles.container}>
+                <View style={[styles.userContainer, styles.containerStyles]}>
+                    <Image style={[styles.userAvatar, styles.containerStyles]} source={{ uri: this.state.avatar }} resizeMode={'contain'} />
                     <Text style={style.userName}>{this.state.userName}</Text>
                 </View>
 
-                <View style={style.userResources}>
-                    {this.Button('Shell ID', this.openLink, style.buttonStyles)}
-                    {this.Button('Discord', this.openLink, style.buttonStyles)}
-                    {this.Button('Travel Reimbursment', this.openLink, style.buttonStyles)}
-                    {this.Button('Log Out', this.goToAuth, style.buttonStyles)}
+                <View style={[style.userResources, style.containerStyles]}>
+                    {this.Button('Shell ID', this.openLink, styles.buttonStyles)}
+                    {this.Button('Discord', this.openLink, styles.buttonStyles)}
+                    {this.Button('Travel Reimbursment', this.openLink, styles.buttonStyles)}
+                    {this.Button('Log Out', this.goToAuth, styles.buttonStyles)}
+                    <View style={styles.halfButtonsContainer}>
+                        {this.Button('DevPost', this.openLink, styles.halfButtons)}
+                        {this.Button('Shell Radio', this.openLink, styles.halfButtons)}
+                    </View>
                 </View>
 
-                <View style={style.bottom}>
-                    <View style={style.centerStuff}>
-                        {this.Button('DevPost', this.openLink, style.shortButtonStyles)}
-                        {this.Button('Shell Radio', this.openLink, style.shortButtonStyles)}
-                    </View>
-                    <Text style={style.bottomTitle}>Stalks us on Social Media</Text>
-                    <View style={style.socialMedia}>
-                        {this.Image(this.state.linkedIn, this.openLink)}
-                        {this.Image(this.state.instagram, this.openLink)}
-                        {this.Image(this.state.instagram, this.openLink)}
-                        {this.Image(this.state.instagram, this.openLink)}
+                <View style={[styles.socialMediaContainer, style.containerStyles]}>
+                    <Text style={styles.socialMediaTitle}>Stalks us on Social Media</Text>
+                    <View style={styles.socialMediaIconContainer}>
+                        {this.socialMedia(this.state.instagram, this.openLink)}
+                        {this.socialMedia(this.state.instagram, this.openLink)}
+                        {this.socialMedia(this.state.instagram, this.openLink)}
+                        {this.socialMedia(this.state.instagram, this.openLink)}
                     </View>
                 </View>
             </View>
