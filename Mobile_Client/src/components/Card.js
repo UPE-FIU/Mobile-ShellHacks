@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   ScrollView
 } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
 
 export default function Card({ title, description, tag }) {
   return (
@@ -14,8 +15,27 @@ export default function Card({ title, description, tag }) {
       <Text numberOfLines={4}>{description}</Text>
       <Text style={styles.tag}>{tag}</Text>
       <View style={styles.callToAction}>
-        <Text>Read More</Text>
-        <Text>Hide</Text>
+        <Icon name="ios-book" size={16}>
+          <Text
+            onPress={() => {
+              console.log("Open a modal or something");
+            }}
+          >
+            {" "}
+            Read More
+          </Text>
+        </Icon>
+
+        <Icon name="ios-close-circle-outline" size={16}>
+          <Text
+            onPress={() => {
+              console.log("Hide this");
+            }}
+          >
+            {" "}
+            Close
+          </Text>
+        </Icon>
       </View>
     </View>
   );
@@ -26,8 +46,20 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 30,
     paddingBottom: 20,
-    marginTop: 40,
-    backgroundColor: "#FFF"
+    marginBottom: 30,
+    backgroundColor: "#FFF",
+    borderRadius: 4,
+    borderWidth: 1.8,
+    borderColor: "#2C82A9",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 4
+    },
+    shadowOpacity: 0.32,
+    shadowRadius: 5.46,
+
+    elevation: 9
   },
   header: {
     fontSize: 24,
@@ -42,6 +74,11 @@ const styles = StyleSheet.create({
   callToAction: {
     marginTop: 15,
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    paddingHorizontal: 2
+  },
+  spacing: {
+    padding: 20,
+    backgroundColor: "#FFF"
   }
 });
