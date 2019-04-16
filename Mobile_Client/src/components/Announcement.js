@@ -36,6 +36,7 @@ export default function Announcement() {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 25
+    marginVertical: 20,
+    padding: 12
   }
 });

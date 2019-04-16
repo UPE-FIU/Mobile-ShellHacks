@@ -1,9 +1,10 @@
 {
-  "packagerPort": 19001,
-  "packagerPid": 16988,
   "expoServerPort": 19000,
-  "expoServerNgrokUrl": "https://7h-x7s.jehfkemsy.mobile-client.exp.direct",
-  "packagerNgrokUrl": "https://packager.7h-x7s.jehfkemsy.mobile-client.exp.direct",
-  "ngrokPid": 16028,
-  "devToolsPort": 19002
+  "webpackServerPort": null,
+  "expoServerNgrokUrl": "https://7h-x7s.anonymous.mobile-client.exp.direct",
+  "packagerNgrokUrl": "https://packager.7h-x7s.anonymous.mobile-client.exp.direct",
+  "ngrokPid": 84053,
+  "devToolsPort": 19002,
+  "packagerPort": 19004,
+  "packagerPid": 84021
 }
