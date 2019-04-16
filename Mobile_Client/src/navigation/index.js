@@ -17,8 +17,8 @@ import Profile from '../screens/profile';
 import Schedule from '../screens/schedule';
 import Sponsors from '../screens/sponsors';
 import Loading from '../components/Loading';
-import Landing from '../Landing/landing';
-import Login from '../Landing/login';
+import Landing from '../auth/landing';
+import Login from '../auth/login';
 
 const headerStyles = {
     defaultNavigationOptions: {
