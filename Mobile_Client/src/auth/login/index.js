@@ -6,22 +6,37 @@ import {
     TouchableOpacity
 } from "react-native";
 import styles from './style'
-
 export default class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             isLoggedIn: false,
-            Password: '',
-            Email: ''
+            password: '',
+            email: '',
+            error: '',
+            loading: false,
         }
+        this.signIn = this.signIn.bind(this);
     }
     //need to implement @Joseph... saving the token to local storage 
     saveToken = () => { }
 
-    signIn = () => { this.props.navigation.navigate('App') }
+    //sign user in and navigate to home page 
+    signIn = () => {
 
-    backToLanding = () => { this.props.navigation.navigate('Landing') }
+        //executes only after logging in in
+        this.setState({ loading: true })
+        this.setState({ isLoggedIn: true })
+        this.props.navigation.navigate('App')
+
+        this.setState({ isLoggedIn: false })
+
+    }
+
+    goToLanding = () => {
+        this.props.navigation.navigate('Landing')
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -34,6 +49,7 @@ export default class Login extends React.Component {
                         placeholderTextColor="#b7ae98"
                         clearButtonMode="always"
                         style={styles.textInput}
+                        onChangeText={(email) => this.setState({ email })}//adds value to tthe state
                     />
                     <Text style={styles.lable}>Password</Text>
                     <TextInput
@@ -44,6 +60,7 @@ export default class Login extends React.Component {
                         secureTextEntry={true}
                         clearButtonMode="always"
                         style={styles.textInput}
+                        onChangeText={(password) => this.setState({ password })}
                     />
                     <TouchableOpacity
                         style={styles.submitButton}
@@ -51,7 +68,7 @@ export default class Login extends React.Component {
                     >
                         <Text style={styles.whiteText}>Sign In</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.backLabel} onPress={this.backToLanding}>
+                    <TouchableOpacity style={styles.backLabel} onPress={this.goToLanding}>
                         <Text  >
                             {"← Go Back"}
                         </Text>
