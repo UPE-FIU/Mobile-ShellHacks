@@ -1,3 +1,3 @@
 import React from 'react';
-const storageContext = React.createContext({});
-export default storageContext;
+const LocalStorage = React.createContext({});
+export default LocalStorage;
