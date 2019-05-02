@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Image, Linking, Modal, Text, TouchableOpacity } from 'react-native';
-
+import {View, Image, Linking, Modal, Text, TouchableOpacity } from 'react-native';
 import styles from './style'
 
 

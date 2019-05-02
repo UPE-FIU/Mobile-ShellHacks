@@ -1,12 +1,15 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, Linking, Image } from 'react-native';
-import style from './style'
+import style from './style';
+import ShellID from '../../components/shell_ID';
 export default class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            userID: "kjhgfxfgchgjhjojh",
+            showIdModal: false,
             registerLink: 'https://shellhacks.net/',
-            avatar: 'https://artcorgi.com/wp-content/uploads/2014/09/Portrait-of-Christopher-Duel-by-Crespella-via-ArtCorgi.jpg',
+            avatar: 'https://www.goodfreephotos.com/albums/vector-images/seashell-icon-vector-clipart.png',
             userName: 'Jehf Doe',
             facebook: 'data:image/png;base64,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',
             instagram: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNKJ1LKaDum5eOsdZsDykTklXx5SI7H-bhfA-SEUGIrO14n8DVJQ',
@@ -21,9 +24,9 @@ export default class Profile extends React.Component {
     goToAuth = () => {
         this.props.navigation.navigate('Landing')
     }
-    showId = () => {
-        Linking.openURL(this.state.registerLink)
-    }
+
+    showId = () => { this.setState({ showIdModal: !this.state.showIdModal }); }
+
 
     Button = (buttonText, handlePress, buttonStyles) => {
         return (
@@ -40,27 +43,31 @@ export default class Profile extends React.Component {
         )
     }
     render() {
+        const IDModal = this.state.showIdModal ? <ShellID userID={this.state.userID} showId={this.showId.bind(this)} show={true} /> : <View />
         return (
             <View style={styles.container}>
+                {IDModal}
                 <View style={[styles.userContainer, styles.containerStyles]}>
                     <Image style={[styles.userAvatar, styles.containerStyles]} source={{ uri: this.state.avatar }} resizeMode={'contain'} />
                     <Text style={style.userName}>{this.state.userName}</Text>
+                    <Text style={style.userName}>Score: 2000</Text>
                 </View>
 
                 <View style={[style.userResources, style.containerStyles]}>
-                    {this.Button('Shell ID', this.openLink, styles.buttonStyles)}
-                    {this.Button('Discord', this.openLink, styles.buttonStyles)}
-                    {this.Button('Travel Reimbursment', this.openLink, styles.buttonStyles)}
+                    {this.Button('Shell ID', this.showId, styles.buttonStyles)}
+                    {this.Button('Shell Radio', this.openLink, styles.buttonStyles)}
                     {this.Button('Log Out', this.goToAuth, styles.buttonStyles)}
-                    <View style={styles.halfButtonsContainer}>
-                        {this.Button('DevPost', this.openLink, styles.halfButtons)}
-                        {this.Button('Shell Radio', this.openLink, styles.halfButtons)}
-                    </View>
                 </View>
 
                 <View style={[styles.socialMediaContainer, style.containerStyles]}>
                     <Text style={styles.socialMediaTitle}>Stalks us on Social Media</Text>
-                    <View style={styles.socialMediaIconContainer}>
+                    <TouchableOpacity style={{ width: '100%', height: '35%' }}>
+                        <Image
+                            style={{ width: '100%', height: '80%', resizeMode: 'contain' }}
+                            source={{ uri: 'https://tridentoutfit.com/assets/discord_logo.png' }}
+                        />
+                    </TouchableOpacity>
+                    < View style={styles.socialMediaIconContainer} >
                         {this.socialMedia(this.state.instagram, this.openLink)}
                         {this.socialMedia(this.state.instagram, this.openLink)}
                         {this.socialMedia(this.state.instagram, this.openLink)}
