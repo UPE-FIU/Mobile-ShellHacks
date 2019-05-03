@@ -4,10 +4,13 @@ import {
     Text,
     TextInput,
     View,
-    TouchableOpacity
+    TouchableOpacity,
+    Alert
 } from "react-native";
 import styles from './style'
+import errorAlert from '../../components/errorAlert';
 import Loading from '../../components/loading';
+import { isEmailValid, isPasswordValid } from '../../utilities/validation'
 
 export default class Login extends React.Component {
     constructor(props) {
@@ -22,27 +25,30 @@ export default class Login extends React.Component {
         this.signIn = this.signIn.bind(this);
     }
 
-    signIn = async () => {
-        this.setState({ loading: true })
+    sendRequest = async (user) => {
+        await axios.post(`https://reqres.in/api/users`, { user })//temp endpoints 
+            .then(res => {
+                let { user } = res.data;
+                this.setState({ loading: false })
+                if (res.status == 201) this.props.navigation.navigate('App');
+            })
+            .catch((error) => {
+                errorAlert("something went wrong..", error)
+            })
+    }
+
+    signIn = () => {
         const user = {
             email: this.state.email,
             password: this.state.password,
         }
-        if (user === null) {
-            throw this.setState({ emptyFields: true })
+        if (user.email === '' || user.password === '' || isEmailValid(user.email) || isPasswordValid(user.password)) {
+            errorAlert("You are missing something!", "Make sure to fill all the fields.")
         }
-        await axios.post(`https://reqres.in/api/users`, { user })//temp endpoints 
-            .then(res => {
-                let { user } = res.data;
-                console.log("_____________________RESPONSE__________________________");
-                console.log(user);
-                console.log(res.data);
-                this.setState({ loading: false })
-                res.status == 201 ? this.props.navigation.navigate('App') : ""
-            })
-            .catch((error) => {
-                console.log(error)
-            })
+        else {
+            this.setState({ loading: true })
+            sendRequest(user);
+        }
     }
 
     goToLanding = () => {

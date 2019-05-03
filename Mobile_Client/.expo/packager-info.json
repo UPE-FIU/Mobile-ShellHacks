@@ -3,8 +3,8 @@
   "webpackServerPort": null,
   "expoServerNgrokUrl": "https://pr-hvm.jehfkemsy.mobile-client.exp.direct",
   "packagerNgrokUrl": "https://packager.pr-hvm.jehfkemsy.mobile-client.exp.direct",
-  "ngrokPid": 21532,
+  "ngrokPid": 17492,
   "devToolsPort": 19002,
   "packagerPort": 19001,
-  "packagerPid": 22164
+  "packagerPid": 21608
 }
