@@ -10,4 +10,4 @@ const isPasswordValid = (password) => {
     return password.length > 7;
 }
 
-export default { isEmailValid, isPasswordValid };
+export { isEmailValid, isPasswordValid };

@@ -23,6 +23,7 @@ export default class Login extends React.Component {
             email: '',
         }
         this.signIn = this.signIn.bind(this);
+
     }
 
     sendRequest = async (user) => {
@@ -42,12 +43,12 @@ export default class Login extends React.Component {
             email: this.state.email,
             password: this.state.password,
         }
-        if (user.email === '' || user.password === '' || isEmailValid(user.email) || isPasswordValid(user.password)) {
+        if (user.email === '' || user.password === '' || !isEmailValid(user.email) || !isPasswordValid(user.password)) {
             errorAlert("You are missing something!", "Make sure to fill all the fields.")
         }
         else {
             this.setState({ loading: true })
-            sendRequest(user);
+            this.sendRequest(user);
         }
     }
 
