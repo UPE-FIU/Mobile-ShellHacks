@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios';
 import {
     Text,
     TextInput,
@@ -6,31 +7,42 @@ import {
     TouchableOpacity
 } from "react-native";
 import styles from './style'
+import Loading from '../../components/loading';
+
 export default class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoggedIn: false,
+            isLoggedin: false,
+            emptyFields: false,
+            loading: false,
             password: '',
             email: '',
-            error: '',
-            loading: false,
         }
         this.signIn = this.signIn.bind(this);
     }
-    //need to implement @Joseph... saving the token to local storage 
-    saveToken = () => { }
 
-    //sign user in and navigate to home page 
-    signIn = () => {
-
-        //executes only after logging in in
+    signIn = async () => {
         this.setState({ loading: true })
-        this.setState({ isLoggedIn: true })
-        this.props.navigation.navigate('App')
-
-        this.setState({ isLoggedIn: false })
-
+        const user = {
+            email: this.state.email,
+            password: this.state.password,
+        }
+        if (user === null) {
+            throw this.setState({ emptyFields: true })
+        }
+        await axios.post(`https://reqres.in/api/users`, { user })//temp endpoints 
+            .then(res => {
+                let { user } = res.data;
+                console.log("_____________________RESPONSE__________________________");
+                console.log(user);
+                console.log(res.data);
+                this.setState({ loading: false })
+                res.status == 201 ? this.props.navigation.navigate('App') : ""
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
     goToLanding = () => {
@@ -38,8 +50,9 @@ export default class Login extends React.Component {
     }
 
     render() {
-        return (
-            <View style={styles.container}>
+        if (this.state.loading) return (<Loading />)
+        else return (
+            <View style={styles.container} >
                 <View style={styles.formContainer}>
                     <Text style={styles.lable}>Email</Text>
                     <TextInput
