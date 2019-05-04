@@ -1,30 +1,67 @@
 import React from "react";
+import axios from 'axios';
 import {
     Text,
     TextInput,
     View,
-    TouchableOpacity
+    TouchableOpacity,
+    Alert
 } from "react-native";
 import styles from './style'
+import errorAlert from '../../components/errorAlert';
+import Loading from '../../components/loading';
+import { isEmailValid, isPasswordValid } from '../../utilities/validation'
 
 export default class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoggedIn: false,
-            Password: '',
-            Email: ''
+            isLoggedin: false,
+            emptyFields: false,
+            loading: false,
+            password: '',
+            email: '',
+        }
+        this.signIn = this.signIn.bind(this);
+
+    }
+
+    sendRequest = async (user) => {
+        await axios.post(`https://reqres.in/api/users`, { user })//temp endpoints 
+            .then(res => {
+                let { user } = res.data;
+                this.setState({ loading: false })
+                if (res.status == 201) this.props.navigation.navigate('App');
+            })
+            .catch((error) => {
+                errorAlert("something went wrong..", error)
+            })
+    }
+
+    signIn = () => {
+        const user = {
+            email: this.state.email,
+            password: this.state.password,
+        }
+        if (user.email === '' || user.password === '' || !isEmailValid(user.email) || !isPasswordValid(user.password)) {
+            errorAlert("You are missing something!", "Make sure to fill all the fields.")
+        }
+        else {
+            this.setState({ loading: true })
+            this.sendRequest(user);
         }
     }
-    //need to implement @Joseph... saving the token to local storage 
-    saveToken = () => { }
 
-    signIn = () => { this.props.navigation.navigate('App') }
+    goToLanding = () => {
+        this.props.navigation.navigate('Landing')
+    }
 
-    backToLanding = () => { this.props.navigation.navigate('Landing') }
     render() {
-        return (
-            <View style={styles.container}>
+        let display;
+
+        if (this.state.loading) display = (<Loading />)
+        else display = (
+            <View style={styles.container} >
                 <View style={styles.formContainer}>
                     <Text style={styles.lable}>Email</Text>
                     <TextInput
@@ -34,6 +71,7 @@ export default class Login extends React.Component {
                         placeholderTextColor="#b7ae98"
                         clearButtonMode="always"
                         style={styles.textInput}
+                        onChangeText={(email) => this.setState({ email })}//adds value to tthe state
                     />
                     <Text style={styles.lable}>Password</Text>
                     <TextInput
@@ -44,6 +82,7 @@ export default class Login extends React.Component {
                         secureTextEntry={true}
                         clearButtonMode="always"
                         style={styles.textInput}
+                        onChangeText={(password) => this.setState({ password })}
                     />
                     <TouchableOpacity
                         style={styles.submitButton}
@@ -51,7 +90,7 @@ export default class Login extends React.Component {
                     >
                         <Text style={styles.whiteText}>Sign In</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.backLabel} onPress={this.backToLanding}>
+                    <TouchableOpacity style={styles.backLabel} onPress={this.goToLanding}>
                         <Text  >
                             {"← Go Back"}
                         </Text>
@@ -59,6 +98,7 @@ export default class Login extends React.Component {
                 </View>
             </View>
         );
+        return (display)
     }
 }
 

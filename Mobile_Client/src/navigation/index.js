@@ -1,22 +1,13 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import styles from './style'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
-import {
-    createBottomTabNavigator,
-    createAppContainer,
-    createSwitchNavigator,
-    createStackNavigator
-} from 'react-navigation';
-
+import { createBottomTabNavigator, createAppContainer, createSwitchNavigator, createStackNavigator } from 'react-navigation';
+import styles from './style'
 //Screens
 import Announcements from '../screens/announcements';
 import Map from '../screens/map';
 import Profile from '../screens/profile';
 import Schedule from '../screens/schedule';
 import Sponsors from '../screens/sponsors';
-import Loading from '../components/Loading';
 import Landing from '../auth/landing';
 import Login from '../auth/login';
 
@@ -145,7 +136,6 @@ const AppStack = createBottomTabNavigator({
 //App Navigations 
 export default AppNavigator = createAppContainer(createSwitchNavigator(
     {
-        Loading: Loading,
         Auth: AuthStack,
         App: AppStack
     },
