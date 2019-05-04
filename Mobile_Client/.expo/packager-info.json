@@ -1,10 +1,9 @@
 {
-  "expoServerPort": 19000,
-  "webpackServerPort": null,
-  "expoServerNgrokUrl": "https://pr-hvm.jehfkemsy.mobile-client.exp.direct",
-  "packagerNgrokUrl": "https://packager.pr-hvm.jehfkemsy.mobile-client.exp.direct",
-  "ngrokPid": 9804,
+  "expoServerPort": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "devToolsPort": 19002,
-  "packagerPort": 19001,
-  "packagerPid": 1012
+  "packagerPort": null,
+  "packagerPid": null
 }

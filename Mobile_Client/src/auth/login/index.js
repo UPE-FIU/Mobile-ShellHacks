@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import styles from './style'
 import errorAlert from '../../components/errorAlert';
-import Loading from '../../components/loading';
+import Loading from '../../components/Loading';
 import { isEmailValid, isPasswordValid } from '../../utilities/validation'
 
 export default class Login extends React.Component {
@@ -39,17 +39,18 @@ export default class Login extends React.Component {
     }
 
     signIn = () => {
-        const user = {
-            email: this.state.email,
-            password: this.state.password,
-        }
-        if (user.email === '' || user.password === '' || !isEmailValid(user.email) || !isPasswordValid(user.password)) {
-            errorAlert("You are missing something!", "Make sure to fill all the fields.")
-        }
-        else {
-            this.setState({ loading: true })
-            this.sendRequest(user);
-        }
+        this.props.navigation.navigate('App')
+        // const user = {
+        //     email: this.state.email,
+        //     password: this.state.password,
+        // }
+        // if (user.email === '' || user.password === '' || !isEmailValid(user.email) || !isPasswordValid(user.password)) {
+        //     errorAlert("You are missing something!", "Make sure to fill all the fields.")
+        // }
+        // else {
+        //     this.setState({ loading: true })
+        //     this.sendRequest(user);
+        // }
     }
 
     goToLanding = () => {
