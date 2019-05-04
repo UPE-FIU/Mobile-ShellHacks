@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, ScrollView, SectionList, FlatList } from 'react-native';
-import SponsorCard from '../../components/cards/index';
+import SponsorCard from '../../components/sponsorCard';
 import styles from './style';
 import { sponsors } from './data.json';
 
