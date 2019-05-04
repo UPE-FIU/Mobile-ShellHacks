@@ -1,3 +1,8 @@
 import React from 'react';
-const LocalStorage = React.createContext({});
-export default LocalStorage;
+
+const UserContext = React.createContext({});
+
+const UserProvider = UserContext.Provider
+const UserConsumer = UserContext.Consumer
+
+export { UserConsumer, UserProvider };

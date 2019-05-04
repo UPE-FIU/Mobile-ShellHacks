@@ -57,8 +57,10 @@ export default class Login extends React.Component {
     }
 
     render() {
-        if (this.state.loading) return (<Loading />)
-        else return (
+        let display;
+
+        if (this.state.loading) display = (<Loading />)
+        else display = (
             <View style={styles.container} >
                 <View style={styles.formContainer}>
                     <Text style={styles.lable}>Email</Text>
@@ -96,6 +98,7 @@ export default class Login extends React.Component {
                 </View>
             </View>
         );
+        return (display)
     }
 }
 
