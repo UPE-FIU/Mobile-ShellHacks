@@ -26,14 +26,14 @@ export default styles = StyleSheet.create({
     color: '#675C50',
   },
   userResouces: {
-    flex: 3
+    flex: 2
   },
   buttonStyles: {
     padding: 15,//need to change
     marginTop: '5%',
     borderRadius: 25,
     width: '100%',
-    backgroundColor: "#2C82A9",
+    backgroundColor: "#FE81B4",
     alignItems: "center"
   },
   halfButtonsContainer: {
@@ -58,7 +58,8 @@ export default styles = StyleSheet.create({
   socialMediaContainer: {
     flex: 1,
     justifyContent: 'space-around',
-    alignItems: "center"
+    alignItems: "center",
+    marginTop: 20
   },
   socialMediaTitle: {
     alignSelf: 'center',

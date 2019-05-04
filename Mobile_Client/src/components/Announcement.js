@@ -1,9 +1,6 @@
 import React from "react";
 import {
   StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
   ScrollView
 } from "react-native";
 import Card from "./Card";

@@ -1,9 +1,20 @@
 import React from "react";
-import { StyleSheet, Platform, AsyncStorage } from "react-native";
 import AppNavigator from "./src/navigation";
+import { UserProvider } from './src/services/context';
 
 export default class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      data: {},
+      token: ""
+    }
+  }
   render() {
-    return <AppNavigator />;
+    return (
+      <UserProvider value={this.state}>
+        <AppNavigator />
+      </UserProvider>
+    );
   }
 }
