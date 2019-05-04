@@ -1,1 +1,0 @@
-// a sponsor view
