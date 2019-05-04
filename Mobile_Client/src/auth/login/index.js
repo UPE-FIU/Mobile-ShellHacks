@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import styles from './style'
 import errorAlert from '../../components/errorAlert';
-import Loading from '../../components/Loading';
+import Loading from '../../components/loading';
 import { isEmailValid, isPasswordValid } from '../../utilities/validation'
 
 export default class Login extends React.Component {
