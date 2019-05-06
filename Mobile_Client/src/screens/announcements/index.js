@@ -11,24 +11,17 @@ export default class Annoucements extends React.Component {
     };
   }
   componentDidMount() {
-    {
-      fetchDummyText().then(response => {
-        const { body, id, title } = response;
-
-        this.setState({
-          data: [
-            {
-              id: id,
-              title: title,
-              time: "03:50:19",
-              location: "Da Gauntlet",
-              description: body,
-              tag: "Herp"
-            }
-          ]
-        });
+    fetchDummyText().then(data => {
+      const events = [];
+      data.map(event => {
+        if (event.id < 6) {
+          events.push(event);
+        }
       });
-    }
+      this.setState({
+        data: events
+      });
+    });
     // this.setState({
     //   data: [
     //     {
@@ -49,24 +42,6 @@ export default class Annoucements extends React.Component {
     //         "Banjo woke knausgaard fixie offal 8-bit 3 wolf moon mustache marfa sustainable iPhone bicycle rights master cleanse tbh lumbersexual. Hammock woke locavore hoodie next level neutra fixie listicle lumbersexual. Intelligentsia cornhole locavore.",
     //       tag: "Activities"
     //     },
-    //     {
-    //       id: 2,
-    //       title: "Intro to AI with maldon.js",
-    //       time: "Happening Now!",
-    //       location: "PG6-116",
-    //       description:
-    //         "Fingerstache schlitz chicharrones banh mi scenester williamsburg stumptown kombucha affogato hella intelligentsia meditation celiac migas. Kinfolk single-origin coffee irony air plant distillery. Enamel pin salvia pitchfork photo booth four loko tousled flexitarian pabst kinfolk vinyl tilde pour-over.",
-    //       tag: "Workshop"
-    //     },
-    //     {
-    //       id: 3,
-    //       title: "Soylent Pong",
-    //       time: "03:50:19",
-    //       location: "CASE-241",
-    //       description:
-    //         "Green juice chia salvia aesthetic. Tousled affogato green juice, hexagon succulents cold-pressed poke beard godard sartorial quinoa adaptogen pug unicorn narwhal. Pabst semiotics franzen bespoke vinyl jean shorts copper mug dreamcatcher pok pok aesthetic.",
-    //       tag: "Activities"
-    //     }
     //   ]
     // });
   }
