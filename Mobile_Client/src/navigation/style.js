@@ -3,6 +3,7 @@ export default (styles = StyleSheet.create({
   container: {
     backgroundColor: "#FBEDCA",
     borderTopWidth: 0,
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingTop: 10,
   }
 }));

@@ -91,9 +91,9 @@ export default class Login extends React.Component {
                     >
                         <Text style={styles.whiteText}>Sign In</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.backLabel} onPress={this.goToLanding}>
-                        <Text  >
-                            {"← Go Back"}
+                    <TouchableOpacity style={styles.submitButton} onPress={this.goToLanding}>
+                        <Text style={styles.whiteText} >
+                            Go Back
                         </Text>
                     </TouchableOpacity>
                 </View>

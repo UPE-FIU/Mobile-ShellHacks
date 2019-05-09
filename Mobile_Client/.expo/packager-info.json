@@ -1,9 +1,10 @@
 {
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
-  "devToolsPort": 19002
+  "expoServerPort": 19000,
+  "expoServerNgrokUrl": "https://7h-mvv.jehfkemsy.mobile-client.exp.direct",
+  "packagerNgrokUrl": "https://packager.7h-mvv.jehfkemsy.mobile-client.exp.direct",
+  "ngrokPid": 5912,
+  "devToolsPort": 19002,
+  "packagerPort": 19001,
+  "packagerPid": 8396
+
 }

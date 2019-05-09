@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginBottom: 15,
         padding: 12,
-        color: "#FFF",
-        backgroundColor: "#666"
+        color: "#665b50",
+        backgroundColor: "white"
     },
     submitButton: {
         marginTop: 30,
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         // // margin: 10,
         borderRadius: 25,
         width: '100%',
-        backgroundColor: "#2C82A9",
+        backgroundColor: "#665b50",
         color: "#FFF",
         alignItems: "center"
     },
