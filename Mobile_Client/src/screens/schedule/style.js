@@ -14,6 +14,6 @@ export default style = StyleSheet.create({
     color: '#665C51',
     textAlign: 'center',
     fontWeight: 'bold',
-    marginBottom: '5%',
+    marginBottom: '17%', // Adjusted for other devices
   }
 });
