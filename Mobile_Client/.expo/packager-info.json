@@ -1,9 +1,9 @@
 {
   "expoServerPort": 19000,
-  "expoServerNgrokUrl": "https://7h-mvv.anonymous.mobile-client.exp.direct",
-  "packagerNgrokUrl": "https://packager.7h-mvv.anonymous.mobile-client.exp.direct",
-  "ngrokPid": 3088,
+  "expoServerNgrokUrl": "https://7h-mvv.jehfkemsy.mobile-client.exp.direct",
+  "packagerNgrokUrl": "https://packager.7h-mvv.jehfkemsy.mobile-client.exp.direct",
+  "ngrokPid": 5912,
   "devToolsPort": 19002,
   "packagerPort": 19001,
-  "packagerPid": 12112
+  "packagerPid": 8396
 }

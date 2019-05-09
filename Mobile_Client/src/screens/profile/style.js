@@ -33,7 +33,7 @@ export default styles = StyleSheet.create({
     marginTop: '5%',
     borderRadius: 25,
     width: '100%',
-    backgroundColor: "#FE81B4",
+    backgroundColor: "#665b50",
     alignItems: "center"
   },
   halfButtonsContainer: {

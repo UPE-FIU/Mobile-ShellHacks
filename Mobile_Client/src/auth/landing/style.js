@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         marginTop: 40,
         borderRadius: 25,
         width: '80%',
-        backgroundColor: "#2C82A9",
+        backgroundColor: "#665b50",
         alignItems: "center"
     },
     buttonText: {
