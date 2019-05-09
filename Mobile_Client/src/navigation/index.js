@@ -21,6 +21,8 @@ const headerStyles = {
             fontWeight: '900',
             fontSize: 30,
             color: '#675C50',
+            textAlign: 'center',
+            flex: 1
         },
     },
 }
