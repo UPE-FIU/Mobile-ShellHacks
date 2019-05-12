@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, FlatList } from 'react-native';
 import style from './style'
 import Card from "../../components/scheduleCard"
+import Filter from "../../components/scheduleFilter"
 import Emoji from "react-native-emoji";
 
 export default class Schedule extends React.Component {
@@ -48,12 +49,20 @@ export default class Schedule extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={style.container}>
+        <View style={{
+          backgroundColor: 'transparent',
+          width: '100%',
+
+        }}>
+          <Filter />
+        </View>
         <FlatList
-          style={style.container}
+          style={style.events}
           data={this.state.data}
           renderItem={({ item }) => <Card data={item} />}
           keyExtractor={(item, index) => item.id.toString()}
+          showsVerticalScrollIndicator={false}
           ListFooterComponent={() =>
             <Text style={style.text}>
               Woah, you made it to the bottom!{"\n"}
