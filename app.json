@@ -24,6 +24,11 @@
         ],
         "ios": {
             "supportsTablet": true
+        },
+        "android": {
+            "package": "shellhacks.year2019.final",
+            "versionCode": 1.00,
+            "googleServicesFile": "./google-services.json"
         }
     }
 }
