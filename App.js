@@ -1,6 +1,8 @@
 import React from "react";
+import { Notifications } from 'expo';
 import AppNavigator from "./src/navigation";
 import { UserProvider } from './src/services/context';
+import Notification from './src/services/notifications';
 
 export default class App extends React.Component {
   constructor() {
@@ -10,6 +12,11 @@ export default class App extends React.Component {
       token: ""
     }
   }
+
+  async componentDidMount(){
+    await Notification.registerForPushNotificationsAsync();
+  }
+
   render() {
     return (
       <UserProvider value={this.state}>
